@@ -32,6 +32,8 @@ gem 'redis', '~> 4.0'
 
 gem 'rubocop', require: false
 
+gem 'simplecov', require: false, group: :test
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -72,4 +74,5 @@ group :test do
   gem 'rspec-rails', '~> 5.1'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'factory_bot_rails'
 end
