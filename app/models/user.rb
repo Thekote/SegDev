@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_one :house
   has_one :vehicle
 
-  enum marital_status: { single: 0, married: 1 }
+  enum marital_status: { single: "single", married: "married" }
 
   accepts_nested_attributes_for :house, :vehicle
 
