@@ -1,24 +1,52 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
+This project uses Ruby on Rails to recieve a payload, process the information and calculate a risk profile for 4 different insurance plans.
 
-Things you may want to cover:
+```
+Ruby version: 3.1.0
+Rails version: 7.0.8
+```
 
-* Ruby version
+First, install dependencies:
 
-* System dependencies
+```bash
+bundle install
+```
 
-* Configuration
+Create, migrate and seed the database:
 
-* Database creation
+```bash
+bundle exec rails db:create
+bundle exec rails db:migrate
+```
 
-* Database initialization
+Start the server
+```bash
+bundle exec rails s
+```
 
-* How to run the test suite
+Open Postman or any other way to send requests to try the endpoints.
 
-* Services (job queues, cache servers, search engines, etc.)
+API Routes:
+  ```
+  POST http://localhost:3000/api/v1/insurance/calculate -> calculate insurance risk profile
+  ```
 
-* Deployment instructions
+Payload Example:
+  ```
+  {
+    "age": 35,
+    "dependents": 2,
+    "house": {"ownership_status": "owned"},
+    "income": 10000,
+    "marital_status": "married",
+    "risk_questions": [0, 1, 0],
+    "vehicle": {"year": 2018}
+  }
+  ```
 
-* ...
+To run the test suites:
+```bash
+bundle exec rspec
+```
