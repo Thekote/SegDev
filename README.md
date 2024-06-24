@@ -50,3 +50,4 @@ To run the test suites:
 ```bash
 bundle exec rspec
 ```
+After running the tests, you can find the `index.html` file on the coverage folder and check the project coverage by opening on your browser.
