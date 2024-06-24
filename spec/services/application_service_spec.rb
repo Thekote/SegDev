@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ApplicationService, type: :service do
@@ -27,13 +29,13 @@ RSpec.describe ApplicationService, type: :service do
         asset[:age] = 40
         service = described_class.new(asset)
 
-        expect(service.calculate_line_score).to eq(1) 
+        expect(service.calculate_line_score).to eq(1)
       end
     end
 
     context 'when income is greater than 200000' do
       it 'subtracts 1 from the score' do
-        asset[:income] = 250000
+        asset[:income] = 250_000
         service = described_class.new(asset)
 
         expect(service.calculate_line_score).to eq(-1)
@@ -42,9 +44,9 @@ RSpec.describe ApplicationService, type: :service do
 
     context 'when income is less than or equal to 200000' do
       it 'does not subtract from the score' do
-        asset[:income] = 200000
+        asset[:income] = 200_000
         service = described_class.new(asset)
-        
+
         expect(service.calculate_line_score).to eq(0)
       end
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -17,7 +19,10 @@ RSpec.describe User, type: :model do
   it { is_expected.to validate_numericality_of(:income).is_greater_than_or_equal_to(0) }
 
   it { is_expected.to validate_presence_of(:marital_status) }
-  it { is_expected.to define_enum_for(:marital_status).with_values(single: "single", married: "married").backed_by_column_of_type(:string) }
+  it {
+    is_expected.to define_enum_for(:marital_status).with_values(single: 'single',
+                                                                married: 'married').backed_by_column_of_type(:string)
+  }
 
   it { is_expected.to validate_presence_of(:risk_questions) }
 

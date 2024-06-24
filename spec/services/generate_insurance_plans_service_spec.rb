@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe GenerateInsurancePlansService do
@@ -17,11 +19,11 @@ RSpec.describe GenerateInsurancePlansService do
       it 'returns the correct insurance profile' do
         result = subject.generate_scores
         expect(result).to eq({
-          auto: 'avancado',
-          disability: 'inelegivel',
-          home: 'economico',
-          life: 'padrao'
-        })
+                               auto: 'avancado',
+                               disability: 'inelegivel',
+                               home: 'economico',
+                               life: 'padrao'
+                             })
       end
     end
 
@@ -38,11 +40,11 @@ RSpec.describe GenerateInsurancePlansService do
 
         result = subject.generate_scores
         expect(result).to eq({
-          auto: 'padrao',
-          disability: 'padrao',
-          home: 'inelegivel',
-          life: 'economico'
-        })
+                               auto: 'padrao',
+                               disability: 'padrao',
+                               home: 'inelegivel',
+                               life: 'economico'
+                             })
       end
     end
   end

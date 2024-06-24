@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CalculateDisabilityScoreService, type: :service do
@@ -6,10 +8,10 @@ RSpec.describe CalculateDisabilityScoreService, type: :service do
   describe '#calculate' do
     context 'when the house ownership status is rented' do
       it 'adds 1 to the score' do
-        asset[:house][:ownership_status] = "rented"
+        asset[:house][:ownership_status] = 'rented'
         service = described_class.new(asset)
 
-        expect(service.calculate).to eq(1) 
+        expect(service.calculate).to eq(1)
       end
     end
 
@@ -34,16 +36,16 @@ RSpec.describe CalculateDisabilityScoreService, type: :service do
       it 'subtracts 1 from the score' do
         service = described_class.new(asset)
 
-        expect(service.calculate).to eq(0) 
+        expect(service.calculate).to eq(0)
       end
     end
 
     context 'when marital status is single' do
       it 'does not subtract 1 from the score' do
-        asset[:marital_status] = "single"
+        asset[:marital_status] = 'single'
         service = described_class.new(asset)
 
-        expect(service.calculate).to eq(1) 
+        expect(service.calculate).to eq(1)
       end
     end
 
@@ -52,7 +54,7 @@ RSpec.describe CalculateDisabilityScoreService, type: :service do
         asset[:income] = 0
         service = described_class.new(asset)
 
-        expect(service.calculate).to eq(nil) 
+        expect(service.calculate).to eq(nil)
       end
     end
 
@@ -61,7 +63,7 @@ RSpec.describe CalculateDisabilityScoreService, type: :service do
         asset[:age] = 61
         service = described_class.new(asset)
 
-        expect(service.calculate).to eq(nil) 
+        expect(service.calculate).to eq(nil)
       end
     end
   end

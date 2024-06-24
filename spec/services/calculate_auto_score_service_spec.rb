@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CalculateAutoScoreService, type: :service do
@@ -9,7 +11,7 @@ RSpec.describe CalculateAutoScoreService, type: :service do
         asset[:vehicle][:year] = 2021
         service = described_class.new(asset)
 
-        expect(service.calculate).to eq(1) 
+        expect(service.calculate).to eq(1)
       end
     end
 

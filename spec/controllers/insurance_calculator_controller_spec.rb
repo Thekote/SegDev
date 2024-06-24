@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Api::V1::InsurancesCalculatorController, type: :controller do
   describe 'POST #calculate_final_scores' do
-    let(:valid_params) { build(:asset) } 
+    let(:valid_params) { build(:asset) }
 
     let(:insurance_profile) do
       {

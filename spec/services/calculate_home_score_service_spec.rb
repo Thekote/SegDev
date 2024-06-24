@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CalculateHomeScoreService, type: :service do
@@ -6,10 +8,10 @@ RSpec.describe CalculateHomeScoreService, type: :service do
   describe '#calculate' do
     context 'when the house ownership status is rented' do
       it 'adds 1 to the score' do
-        asset[:house][:ownership_status] = "rented"
+        asset[:house][:ownership_status] = 'rented'
         service = described_class.new(asset)
 
-        expect(service.calculate).to eq(1) 
+        expect(service.calculate).to eq(1)
       end
     end
 
@@ -26,7 +28,7 @@ RSpec.describe CalculateHomeScoreService, type: :service do
         asset[:house] = {}
         service = described_class.new(asset)
 
-        expect(service.calculate).to eq(nil) 
+        expect(service.calculate).to eq(nil)
       end
     end
   end
